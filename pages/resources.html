@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Darul Uloom Bilaliya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* =========================================
+           GLOBAL STYLES
+           ========================================= */
+        :root {
+            --primary-green: #0D6B49;
+            --dark-green: #085c3d;
+            --light-beige: #F5F1E8;
+            --charcoal: #2D3748;
+            --gold: #B8860B;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13, 107, 73, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 107, 73, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prayer-times {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prayer-times i {
+            color: var(--gold);
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .top-links a:hover {
+            color: var(--gold);
+        }
+
+        .language-toggle {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            padding: 4px 12px;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-green);
+        }
+
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-text h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-green);
+        }
+
+        .main-nav a:hover:after,
+        .main-nav a.active:after {
+            width: 100%;
+        }
+
+        .donate-btn {
+            background-color: var(--primary-green);
+            color: var(--white) !important;
+            padding: 8px 20px !important;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .donate-btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--charcoal);
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+
+        /* Resources Page Header */
+        .resources-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: var(--white);
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resources-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .resources-header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .resources-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .resources-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .resources-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .resources-tab.active {
+            background: var(--white);
+            color: var(--primary-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Resources Content Sections */
+        .resources-section {
+            padding: 100px 0;
+            display: none;
+        }
+
+        .resources-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .resources-section.alt-bg {
+            background-color: var(--light-gray);
+        }
+
+        /* Featured Resources */
+        .featured-resources {
+            margin-bottom: 60px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .featured-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .featured-card-icon {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .featured-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .featured-card h3 {
+            color: var(--charcoal);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .featured-card p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Resources Filters */
+        .resources-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid var(--light-beige);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--charcoal);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 180px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .resources-search {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .resources-search input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: 2px solid var(--light-beige);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .resources-search input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .resources-search i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .resource-card-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid var(--light-beige);
+        }
+
+        .resource-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .resource-type {
+            color: var(--primary-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .resource-date {
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .resource-card h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .resource-card-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .resource-topic {
+            background: var(--light-beige);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .resource-card-content {
+            padding: 20px 25px;
+        }
+
+        .resource-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .resource-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+            background: var(--light-gray);
+            border-top: 1px solid var(--light-beige);
+        }
+
+        .resource-size {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .download-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .download-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        /* Study Materials Section */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .material-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 25px;
+        }
+
+        .material-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .material-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-green);
+            font-size: 2rem;
+        }
+
+        .material-card h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .material-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Quick Links Section */
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .quick-link-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-left: 4px solid var(--primary-green);
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .quick-link-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+
+        .quick-link-card h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .quick-link-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section h3 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-green);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .newsletter {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .btn-subscribe {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--dark-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Load More Button */
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .load-more-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(13, 107, 73, 0.3);
+        }
+
+        .load-more-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 107, 73, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .featured-grid,
+            .resources-grid,
+            .materials-grid,
+            .quick-links-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resources-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .resources-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .resources-tab {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .resources-filters {
+                flex-direction: column;
+            }
+            
+            .resources-search,
+            .filter-select {
+                min-width: 100%;
+            }
+            
+            .resources-grid,
+            .materials-grid,
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+
+            .main-nav li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .main-nav a {
+                display: block;
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resources-header {
+                padding: 100px 0 40px;
+            }
+            
+            .resources-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .resource-card-header,
+            .resource-card-content,
+            .resource-card-footer {
+                padding: 15px;
+            }
+            
+            .featured-card-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="prayer-times">
+                <i class="fas fa-clock"></i>
+                <span id="current-prayer">Fajr: 5:15 AM | Dhuhr: 12:30 PM</span>
+            </div>
+            <div class="top-links">
+                <a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a>
+                <a href="mailto:info@darululoombilaliya.org"><i class="fas fa-envelope"></i> info@darululoombilaliya.org</a>
+                <div class="language-toggle">
+                    <button class="lang-btn active">EN</button>
+                    <button class="lang-btn">UR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="imagesgallery/logo.jpg" alt="Darul Uloom Bilaliya Logo" height="60">
+                <div class="logo-text">
+                    <h1>دار العلوم بلالیہ</h1>
+                    <span>Darul Uloom Bilaliya</span>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="multimedia.html">Multimedia</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="support.html" class="donate-btn">Support Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Resources Header -->
+    <section class="resources-header">
+        <div class="container">
+            <h1>Islamic Resources</h1>
+            <p>Access a wealth of educational materials, publications, and study resources</p>
+            <div class="resources-tabs">
+                <button class="resources-tab active" data-tab="publications">
+                    <i class="fas fa-book"></i> Publications
+                </button>
+                <button class="resources-tab" data-tab="materials">
+                    <i class="fas fa-file-alt"></i> Study Materials
+                </button>
+                <button class="resources-tab" data-tab="links">
+                    <i class="fas fa-link"></i> Quick Links
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="resources-section active">
+        <div class="container">
+            <!-- Featured Resources -->
+            <div class="featured-resources">
+                <h2 class="section-title">Featured Resources</h2>
+                <p class="section-subtitle">Essential Islamic publications and references</p>
+                
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="featured-card-icon">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <div class="featured-card-content">
+                            <h3>Quranic Studies Collection</h3>
+                            <p>A comprehensive collection of Tafsir works, Quranic sciences references, and study guides for deeper understanding of the Holy Quran.</p>
+                            <a href="#" class="btn btn-primary">Explore Collection</a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="featured-card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="featured-card-content">
+                            <h3>Dars-e-Nizami Curriculum</h3>
+                            <p>Complete set of textbooks and reference materials for the traditional Islamic curriculum followed at Darul Uloom Bilaliya.</p>
+                            <a href="#" class="btn btn-primary">View Curriculum</a>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-card">
+                        <div class="featured-card-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="featured-card-content">
+                            <h3>Community Guidebooks</h3>
+                            <p>Practical Islamic guides covering daily life, family matters, financial transactions, and community responsibilities.</p>
+                            <a href="#" class="btn btn-primary">Browse Guides</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Islamic Publications</h2>
+            <p class="section-subtitle">Browse our collection of books, articles, and research papers</p>
+
+            <!-- Resources Filters -->
+            <div class="resources-filters">
+                <select class="filter-select" id="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="quran">Quranic Studies</option>
+                    <option value="hadith">Hadith Sciences</option>
+                    <option value="fiqh">Fiqh & Jurisprudence</option>
+                    <option value="aqeedah">Aqeedah</option>
+                    <option value="seerah">Seerah & History</option>
+                    <option value="tasawwuf">Tasawwuf</option>
+                </select>
+                <select class="filter-select" id="format-filter">
+                    <option value="">All Formats</option>
+                    <option value="book">Books</option>
+                    <option value="article">Articles</option>
+                    <option value="research">Research Papers</option>
+                    <option value="guide">Guides</option>
+                </select>
+                <select class="filter-select" id="language-filter">
+                    <option value="">All Languages</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="urdu">Urdu</option>
+                    <option value="english">English</option>
+                </select>
+                <div class="resources-search">
+                    <input type="text" placeholder="Search publications...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <!-- Resources Grid -->
+            <div class="resources-grid" id="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-book"></i> Book</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <h3>Principles of Islamic Jurisprudence</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Fiqh</span>
+                            <span class="resource-topic">Usul al-Fiqh</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>A comprehensive guide to the principles and methodologies of Islamic jurisprudence, covering all major schools of thought with practical examples.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 4.2 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-file-alt"></i> Research Paper</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                        <h3>Contemporary Issues in Islamic Finance</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Finance</span>
+                            <span class="resource-topic">Muamalat</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>An analysis of modern financial instruments from an Islamic perspective, addressing challenges and proposing Shariah-compliant solutions.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 2.8 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-book"></i> Book</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2022</span>
+                        </div>
+                        <h3>Tafsir of Selected Quranic Verses</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Tafsir</span>
+                            <span class="resource-topic">Quran</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>Detailed exegesis of important Quranic verses with linguistic analysis, historical context, and practical implications for modern Muslims.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 5.1 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-file-alt"></i> Article</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                        <h3>The Concept of Tawhid in Modern Context</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Aqeedah</span>
+                            <span class="resource-topic">Tawhid</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>Exploring the fundamental Islamic concept of Tawhid and its relevance in addressing contemporary theological challenges and misconceptions.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 1.5 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-book"></i> Guide</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2023</span>
+                        </div>
+                        <h3>Daily Duas and Adhkar</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Duas</span>
+                            <span class="resource-topic">Worship</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>A comprehensive collection of daily supplications and remembrances with translations and explanations of their virtues and proper times.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 3.2 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-card-header">
+                        <div class="resource-card-meta">
+                            <span class="resource-type"><i class="fas fa-file-alt"></i> Research Paper</span>
+                            <span class="resource-date"><i class="fas fa-calendar"></i> 2024</span>
+                        </div>
+                        <h3>Islamic Education in Digital Age</h3>
+                        <div class="resource-card-topics">
+                            <span class="resource-topic">Education</span>
+                            <span class="resource-topic">Technology</span>
+                        </div>
+                    </div>
+                    <div class="resource-card-content">
+                        <p>Examining the challenges and opportunities of teaching Islamic sciences through digital platforms while maintaining traditional methodologies.</p>
+                    </div>
+                    <div class="resource-card-footer">
+                        <span class="resource-size"><i class="fas fa-file-pdf"></i> PDF, 2.1 MB</span>
+                        <button class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="load-more-btn" id="load-more-resources">
+                    <i class="fas fa-plus"></i> Load More Publications
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Materials Section -->
+    <section id="materials" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Study Materials</h2>
+            <p class="section-subtitle">Educational resources for students and seekers of knowledge</p>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-quran"></i>
+                    </div>
+                    <h3>Quran Memorization</h3>
+                    <p>Structured guides and schedules for Hifz students with revision plans and memorization techniques.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Arabic Language</h3>
+                    <p>Comprehensive Arabic learning resources from basic grammar to advanced literature studies.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Fiqh Studies</h3>
+                    <p>Detailed notes and references for Islamic jurisprudence across different schools of thought.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Islamic History</h3>
+                    <p>Chronological study materials covering Prophetic history and Muslim civilization development.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Hadith Sciences</h3>
+                    <p>Resources for understanding Hadith terminology, authentication, and application.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Tasawwuf & Akhlaq</h3>
+                    <p>Materials on spiritual purification, character development, and Islamic ethics.</p>
+                    <a href="#" class="btn btn-outline">Access Materials</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section id="links" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Quick Links</h2>
+            <p class="section-subtitle">Useful resources and references for further Islamic learning</p>
+
+            <div class="quick-links-grid">
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Digital Libraries</h3>
+                    <p>Access to online Islamic libraries with thousands of books and manuscripts.</p>
+                    <a href="#" class="btn btn-outline">Explore Libraries</a>
+                </div>
+
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Islamic Institutions</h3>
+                    <p>Links to reputable Islamic universities and educational centers worldwide.</p>
+                    <a href="#" class="btn btn-outline">View Institutions</a>
+                </div>
+
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Online Learning</h3>
+                    <p>Platforms offering structured Islamic courses and certification programs.</p>
+                    <a href="#" class="btn btn-outline">Browse Courses</a>
+                </div>
+
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Research Tools</h3>
+                    <p>Digital tools and databases for Islamic studies research and scholarship.</p>
+                    <a href="#" class="btn btn-outline">Access Tools</a>
+                </div>
+
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Islamic Journals</h3>
+                    <p>Academic journals and periodicals publishing contemporary Islamic research.</p>
+                    <a href="#" class="btn btn-outline">Read Journals</a>
+                </div>
+
+                <div class="quick-link-card">
+                    <div class="quick-link-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Resources</h3>
+                    <p>Materials for Islamic community development and social services.</p>
+                    <a href="#" class="btn btn-outline">Explore Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>Darul Uloom Bilaliya</h3>
+                        <p>Ahmada Kadal, Lal Bazar<br>Srinagar, Jammu & Kashmir</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="academics.html#admissions">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="multimedia.html#audio">Audio Lectures</a></li>
+                        <li><a href="multimedia.html#photos">Photo Gallery</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="support.html">Support Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Phone: +91 99999 99999<br>
+                    Email: info@darululoombilaliya.org</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-subscribe">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Darul Uloom Bilaliya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.resources-tab');
+            const sections = document.querySelectorAll('.resources-section');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active section
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Language toggle
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Resource filtering functionality
+            const categoryFilter = document.getElementById('category-filter');
+            const formatFilter = document.getElementById('format-filter');
+            const languageFilter = document.getElementById('language-filter');
+            const searchInput = document.querySelector('.resources-search input');
+            const resourceCards = document.querySelectorAll('.resource-card');
+            
+            function filterResources() {
+                const categoryValue = categoryFilter.value;
+                const formatValue = formatFilter.value;
+                const languageValue = languageFilter.value;
+                const searchValue = searchInput.value.toLowerCase();
+                
+                resourceCards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    const cardCategory = card.querySelector('.resource-topic').textContent.toLowerCase();
+                    const cardFormat = card.querySelector('.resource-type').textContent.toLowerCase();
+                    
+                    const matchesCategory = !categoryValue || cardCategory.includes(categoryValue);
+                    const matchesFormat = !formatValue || cardFormat.includes(formatValue);
+                    const matchesSearch = !searchValue || cardText.includes(searchValue);
+                    
+                    if (matchesCategory && matchesFormat && matchesSearch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Add event listeners for filtering
+            if (categoryFilter) {
+                categoryFilter.addEventListener('change', filterResources);
+            }
+            if (formatFilter) {
+                formatFilter.addEventListener('change', filterResources);
+            }
+            if (languageFilter) {
+                languageFilter.addEventListener('change', filterResources);
+            }
+            if (searchInput) {
+                searchInput.addEventListener('input', filterResources);
+            }
+        });
+    </script>
+</body>
+</html>

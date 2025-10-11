@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia - Darul Uloom Bilaliya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* =========================================
+           GLOBAL STYLES
+           ========================================= */
+        :root {
+            --primary-green: #0D6B49;
+            --dark-green: #085c3d;
+            --light-beige: #F5F1E8;
+            --charcoal: #2D3748;
+            --gold: #B8860B;
+            --white: #FFFFFF;
+            --light-gray: #f8f9fa;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(13, 107, 73, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 107, 73, 0.4);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            opacity: 0.8;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .prayer-times {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prayer-times i {
+            color: var(--gold);
+        }
+
+        .top-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .top-links a:hover {
+            color: var(--gold);
+        }
+
+        .language-toggle {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            padding: 4px 12px;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-green);
+        }
+
+        .main-header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-text h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .main-nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-green);
+        }
+
+        .main-nav a:hover:after,
+        .main-nav a.active:after {
+            width: 100%;
+        }
+
+        .donate-btn {
+            background-color: var(--primary-green);
+            color: var(--white) !important;
+            padding: 8px 20px !important;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .donate-btn:hover {
+            background-color: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--charcoal);
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+
+        /* Multimedia Page Header */
+        .multimedia-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: var(--white);
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .multimedia-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .multimedia-header h1 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .multimedia-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .multimedia-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .multimedia-tab {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .multimedia-tab:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .multimedia-tab.active {
+            background: var(--white);
+            color: var(--primary-green);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Multimedia Content Sections */
+        .multimedia-section {
+            padding: 100px 0;
+            display: none;
+        }
+
+        .multimedia-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .multimedia-section.alt-bg {
+            background-color: var(--light-gray);
+        }
+
+        /* Audio Library Styles */
+        .audio-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid var(--light-beige);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--charcoal);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 180px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .audio-search {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .audio-search input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: 2px solid var(--light-beige);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .audio-search input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .audio-search i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .audio-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .audio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .audio-card-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid var(--light-beige);
+        }
+
+        .audio-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .audio-speaker {
+            color: var(--primary-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .audio-date {
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .audio-card h3 {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .audio-card-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .audio-topic {
+            background: var(--light-beige);
+            color: var(--primary-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .audio-player-container {
+            padding: 20px 25px;
+        }
+
+        .custom-audio-player {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            height: 40px;
+        }
+
+        .audio-duration {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .download-btn {
+            background: none;
+            border: none;
+            color: var(--primary-green);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .download-btn:hover {
+            color: var(--dark-green);
+            background: rgba(13, 107, 73, 0.1);
+        }
+
+        /* Featured Audio Section */
+        .featured-audio {
+            background: linear-gradient(135deg, var(--charcoal), #1a202c);
+            color: var(--white);
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-audio:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .featured-audio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-audio-info h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .featured-audio-meta {
+            margin-bottom: 25px;
+        }
+
+        .featured-speaker {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-date {
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-audio-description {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .featured-player {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+        }
+
+        .featured-player audio {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        /* Photo Gallery Styles */
+        .gallery-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .gallery-categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-category {
+            background: var(--white);
+            border: 2px solid var(--light-beige);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .gallery-category:hover,
+        .gallery-category.active {
+            background: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .gallery-load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Video Gallery Styles */
+        .video-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .video-play-btn i {
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            margin-left: 3px;
+        }
+
+        .video-card:hover .video-play-btn {
+            background: var(--primary-green);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-card:hover .video-play-btn i {
+            color: var(--white);
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .video-card-content {
+            padding: 20px;
+        }
+
+        .video-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .video-speaker {
+            color: var(--primary-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .video-date {
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .video-card h3 {
+            color: var(--charcoal);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .video-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-section h3 {
+            font-family: 'Cairo', sans-serif;
+            color: var(--primary-green);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .newsletter {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .btn-subscribe {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 0 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-subscribe:hover {
+            background-color: var(--dark-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Load More Button */
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .load-more-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(13, 107, 73, 0.3);
+        }
+
+        .load-more-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 107, 73, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .featured-audio-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .audio-grid,
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .multimedia-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .multimedia-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .multimedia-tab {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .audio-filters,
+            .video-filters {
+                flex-direction: column;
+            }
+            
+            .audio-search,
+            .filter-select {
+                min-width: 100%;
+            }
+            
+            .audio-grid,
+            .video-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .gallery-categories {
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 20px;
+                gap: 0;
+            }
+
+            .main-nav li {
+                border-bottom: 1px solid #eee;
+            }
+
+            .main-nav a {
+                display: block;
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .multimedia-header {
+                padding: 100px 0 40px;
+            }
+            
+            .multimedia-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .audio-card-header,
+            .audio-player-container,
+            .video-card-content {
+                padding: 15px;
+            }
+            
+            .featured-audio-info h2 {
+                font-size: 1.8rem;
+            }
+            
+            .featured-player {
+                padding: 20px;
+            }
+            
+            .featured-audio {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="prayer-times">
+                <i class="fas fa-clock"></i>
+                <span id="current-prayer">Fajr: 5:15 AM | Dhuhr: 12:30 PM</span>
+            </div>
+            <div class="top-links">
+                <a href="tel:+919999999999"><i class="fas fa-phone"></i> +91 99999 99999</a>
+                <a href="mailto:info@darululoombilaliya.org"><i class="fas fa-envelope"></i> info@darululoombilaliya.org</a>
+                <div class="language-toggle">
+                    <button class="lang-btn active">EN</button>
+                    <button class="lang-btn">UR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                 <img src="imagesgallery/logo.jpg" alt="Darul Uloom Bilaliya Logo" height="60">
+                <div class="logo-text">
+                    <h1>دار العلوم بلالیہ</h1>
+                    <span>Darul Uloom Bilaliya</span>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="multimedia.html" class="active">Multimedia</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html" class="donate-btn">Support Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Multimedia Header -->
+    <section class="multimedia-header">
+        <div class="container">
+            <h1>Multimedia Library</h1>
+            <p>Access audio lectures, photo galleries, and video content from Darul Uloom Bilaliya</p>
+            <div class="multimedia-tabs">
+                <button class="multimedia-tab active" data-tab="audio">
+                    <i class="fas fa-headphones"></i> Audio Lectures
+                </button>
+                <button class="multimedia-tab" data-tab="photos">
+                    <i class="fas fa-images"></i> Photo Gallery
+                </button>
+                <button class="multimedia-tab" data-tab="videos">
+                    <i class="fas fa-video"></i> Video Library
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audio Library Section -->
+    <section id="audio" class="multimedia-section active">
+        <div class="container">
+            <!-- Featured Audio -->
+            <div class="featured-audio">
+                <div class="featured-audio-content">
+                    <div class="featured-audio-info">
+                        <h2>Featured Lecture</h2>
+                        <div class="featured-audio-meta">
+                            <div class="featured-speaker">
+                                <i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db
+                            </div>
+                            <div class="featured-date">
+                                <i class="fas fa-calendar"></i> Delivered on: 15th March 2024
+                            </div>
+                        </div>
+                        <p class="featured-audio-description">An enlightening discourse on the importance of seeking knowledge in Islam and its impact on personal and community development. This lecture covers the Islamic perspective on education and its role in building a righteous society.</p>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Lecture
+                        </a>
+                    </div>
+                    <div class="featured-player">
+                        <audio controls class="custom-audio">
+                            <source src="audio/featured-lecture.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-duration">
+                            <span><i class="fas fa-clock"></i> Duration: 45:30</span>
+                            <button class="download-btn" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">Audio Lectures</h2>
+            <p class="section-subtitle">Listen to enlightening lectures from our esteemed scholars</p>
+
+            <!-- Audio Filters and Search -->
+            <div class="audio-filters">
+                <select class="filter-select" id="speaker-filter">
+                    <option value="">All Speakers</option>
+                    <option value="mufti-sahib">Mufti Sahib</option>
+                    <option value="maulana-ahmed">Maulana Ahmed</option>
+                    <option value="maulana-yusuf">Maulana Yusuf</option>
+                </select>
+                <select class="filter-select" id="topic-filter">
+                    <option value="">All Topics</option>
+                    <option value="fiqh">Fiqh</option>
+                    <option value="tafsir">Tafsir</option>
+                    <option value="hadith">Hadith</option>
+                    <option value="aqeedah">Aqeedah</option>
+                    <option value="seerah">Seerah</option>
+                </select>
+                <select class="filter-select" id="series-filter">
+                    <option value="">All Series</option>
+                    <option value="ramadan">Ramadan Series</option>
+                    <option value="weekly">Weekly Lectures</option>
+                    <option value="special">Special Events</option>
+                </select>
+                <div class="audio-search">
+                    <input type="text" placeholder="Search lectures...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <!-- Audio Grid -->
+            <div class="audio-grid" id="audio-grid">
+                <div class="audio-card">
+                    <div class="audio-card-header">
+                        <div class="audio-card-meta">
+                            <span class="audio-speaker"><i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db</span>
+                            <span class="audio-date"><i class="fas fa-calendar"></i> 10 Mar 2024</span>
+                        </div>
+                        <h3>The Importance of Sincerity in Worship</h3>
+                        <div class="audio-card-topics">
+                            <span class="audio-topic">Aqeedah</span>
+                            <span class="audio-topic">Ibadah</span>
+                        </div>
+                    </div>
+                    <div class="audio-player-container">
+                        <audio controls class="custom-audio-player">
+                            <source src="audio/lecture1.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-duration">
+                            <span><i class="fas fa-clock"></i> 38:15</span>
+                            <button class="download-btn" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-card">
+                    <div class="audio-card-header">
+                        <div class="audio-card-meta">
+                            <span class="audio-speaker"><i class="fas fa-user"></i> Maulana Ahmed Hassan</span>
+                            <span class="audio-date"><i class="fas fa-calendar"></i> 5 Mar 2024</span>
+                        </div>
+                        <h3>Understanding Quranic Tafsir: Surah Al-Fatiha</h3>
+                        <div class="audio-card-topics">
+                            <span class="audio-topic">Tafsir</span>
+                            <span class="audio-topic">Quran</span>
+                        </div>
+                    </div>
+                    <div class="audio-player-container">
+                        <audio controls class="custom-audio-player">
+                            <source src="audio/lecture2.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-duration">
+                            <span><i class="fas fa-clock"></i> 52:40</span>
+                            <button class="download-btn" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-card">
+                    <div class="audio-card-header">
+                        <div class="audio-card-meta">
+                            <span class="audio-speaker"><i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db</span>
+                            <span class="audio-date"><i class="fas fa-calendar"></i> 1 Mar 2024</span>
+                        </div>
+                        <h3>Fiqh of Daily Transactions: Halal and Haram</h3>
+                        <div class="audio-card-topics">
+                            <span class="audio-topic">Fiqh</span>
+                            <span class="audio-topic">Muamalat</span>
+                        </div>
+                    </div>
+                    <div class="audio-player-container">
+                        <audio controls class="custom-audio-player">
+                            <source src="audio/lecture3.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="audio-duration">
+                            <span><i class="fas fa-clock"></i> 41:20</span>
+                            <button class="download-btn" title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more">
+                <button class="load-more-btn" id="load-more-audio">
+                    <i class="fas fa-plus"></i> Load More Lectures
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="photos" class="multimedia-section">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="section-subtitle">Explore moments from our campus, events, and community activities</p>
+
+            <div class="gallery-controls">
+                <div class="gallery-categories">
+                    <button class="gallery-category active" data-category="all">All Photos</button>
+                    <button class="gallery-category" data-category="campus">Campus</button>
+                    <button class="gallery-category" data-category="events">Events</button>
+                    <button class="gallery-category" data-category="students">Student Life</button>
+                    <button class="gallery-category" data-category="masjid">Masjid</button>
+                </div>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-item" data-category="campus">
+                    <img src="imagesgallery/foryou2.webp" alt="Darul Uloom Main Building">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Main Building</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="masjid">
+                    <img src="imagesgallery/foryou3.webp" alt="Masjid Interior">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Masjid Interior</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="students">
+                    <img src="https://placehold.co/600x400/2D3748/FFFFFF?text=Classroom+Session" alt="Classroom Session">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Classroom Session</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="events">
+                    <img src="https://placehold.co/600x400/B8860B/FFFFFF?text=Annual+Function" alt="Annual Function">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Annual Function</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="students">
+                    <img src="https://placehold.co/600x400/0D6B49/FFFFFF?text=Student+Activities" alt="Student Activities">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Student Activities</div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="campus">
+                    <img src="imagesgallery/Foryouimage.jpg" alt="Campus View">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Campus View</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-load-more">
+                <button class="load-more-btn" id="load-more-photos">
+                    <i class="fas fa-plus"></i> Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Library Section -->
+    <section id="videos" class="multimedia-section">
+        <div class="container">
+            <h2 class="section-title">Video Library</h2>
+            <p class="section-subtitle">Watch recorded lectures, events, and educational content</p>
+
+            <div class="video-filters">
+                <select class="filter-select" id="video-speaker-filter">
+                    <option value="">All Speakers</option>
+                    <option value="mufti-sahib">Mufti Sahib</option>
+                    <option value="maulana-ahmed">Hazrat Mufti Abdur Rashid Miftahi Sb Db</option>
+                </select>
+                <select class="filter-select" id="video-category-filter">
+                    <option value="">All Categories</option>
+                    <option value="lectures">Lectures</option>
+                    <option value="events">Events</option>
+                    <option value="documentary">Documentary</option>
+                </select>
+                <div class="audio-search">
+                    <input type="text" placeholder="Search videos...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="video-grid" id="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://placehold.co/600x400/0D6B49/FFFFFF?text=Video+Thumbnail" alt="Video Thumbnail">
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">45:20</div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-card-meta">
+                            <span class="video-speaker"><i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db</span>
+                            <span class="video-date"><i class="fas fa-calendar"></i> 12 Mar 2024</span>
+                        </div>
+                        <h3>The Life of Prophet Muhammad (PBUH) - Seerah Series Part 1</h3>
+                        <p>An in-depth look at the early life of Prophet Muhammad (PBUH) and the beginning of his prophethood.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://placehold.co/600x400/085c3d/FFFFFF?text=Video+Thumbnail" alt="Video Thumbnail">
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">38:15</div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-card-meta">
+                            <span class="video-speaker"><i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db</span>
+                            <span class="video-date"><i class="fas fa-calendar"></i> 8 Mar 2024</span>
+                        </div>
+                        <h3>Understanding Islamic Finance - Principles and Applications</h3>
+                        <p>Exploring the foundations of Islamic finance and its practical implementation in modern economics.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://placehold.co/600x400/2D3748/FFFFFF?text=Video+Thumbnail" alt="Video Thumbnail">
+                        <div class="video-play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">52:10</div>
+                    </div>
+                    <div class="video-card-content">
+                        <div class="video-card-meta">
+                            <span class="video-speaker"><i class="fas fa-user"></i> Hazrat Mufti Abdur Rashid Miftahi Sb Db</span>
+                            <span class="video-date"><i class="fas fa-calendar"></i> 3 Mar 2024</span>
+                        </div>
+                        <h3>Campus Tour - Darul Uloom Bilaliya Facilities</h3>
+                        <p>A comprehensive tour of our campus facilities including the masjid, classrooms, and student accommodations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="load-more-btn" id="load-more-videos">
+                    <i class="fas fa-plus"></i> Load More Videos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>Darul Uloom Bilaliya</h3>
+                        <p>Ahmada Kadal, Lal Bazar<br>Srinagar, Jammu & Kashmir</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="academics.html#admissions">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="multimedia.html#audio">Audio Lectures</a></li>
+                        <li><a href="multimedia.html#photos">Photo Gallery</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="support.html">Support Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Phone: +91 99999 99999<br>
+                    Email: info@darululoombilaliya.org</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-subscribe">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Darul Uloom Bilaliya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.multimedia-tab');
+            const sections = document.querySelectorAll('.multimedia-section');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active section
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Gallery category filtering
+            const galleryCategories = document.querySelectorAll('.gallery-category');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryCategories.forEach(category => {
+                category.addEventListener('click', function() {
+                    const categoryName = this.getAttribute('data-category');
+                    
+                    // Update active category
+                    galleryCategories.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (categoryName === 'all' || item.getAttribute('data-category') === categoryName) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mainNav = document.querySelector('.main-nav');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Language toggle
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
