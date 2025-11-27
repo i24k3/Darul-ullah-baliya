@@ -1,0 +1,25 @@
+{
+  "name": "darul-ullah-baliya",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/i24k3/Darul-ullah-baliya#readme",
+  "bugs": {
+    "url": "https://github.com/i24k3/Darul-ullah-baliya/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i24k3/Darul-ullah-baliya.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./src/home.js",
+    "start": "serve src",
+    "new": "serve clean"
+  },
+  "dependencies": {
+    "serve": "^14.2.5"
+  }
+}
