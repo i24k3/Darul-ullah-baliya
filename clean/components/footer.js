@@ -7,16 +7,16 @@ export const footer = () => {
             address: "Ahmada Kadal, Lal Bazar<br>Srinagar, Jammu & Kashmir"
         },
         quickLinks: [
-            { href: "#about", text: "About Us" },
-            { href: "#academics", text: "Academics" },
-            { href: "#admissions", text: "Admissions" },
-            { href: "#contact", text: "Contact" }
+            { href: "/about", text: "About Us" },
+            { href: "/academics", text: "Academics" },
+            { href: "/admissions", text: "Admissions" },
+            { href: "/contact", text: "Contact" }
         ],
         connectLinks: [
-            { href: "#multimedia", text: "Audio Lectures" },
-            { href: "#multimedia", text: "Photo Gallery" },
-            { href: "#resources", text: "Resources" },
-            { href: "#support", text: "Support Us" }
+            { href: "/multimedia", text: "Audio Lectures" },
+            { href: "/multimedia", text: "Photo Gallery" },
+            { href: "/resources", text: "Resources" },
+            { href: "/support", text: "Support Us" }
         ],
         contact: {
             phone: "+91 99999 99999",

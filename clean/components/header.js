@@ -3,19 +3,20 @@
 export const header = () => {
     const headerData = {
         logo: {
+            path:"/",
             src: "https://cdn-icons-png.flaticon.com/128/17517/17517807.png",
             alt: "Darul Uloom Bilaliya Logo",
             arabicName: "دار العلوم بلالیہ",
             englishName: "Darul Uloom Bilaliya"
         },
         navLinks: [
-            { href: "#about", text: "About Us" },
-            { href: "#academics", text: "Academics" },
-            { href: "#admissions", text: "Admissions" },
-            { href: "#contact", text: "Contact" }
+            { href: "/about", text: "About Us" },
+            { href: "/academics", text: "Academics" },
+            { href: "/admissions", text: "Admissions" },
+            { href: "/contact", text: "Contact" }
         ],
         ctaButton: {
-            href: "#support",
+            href: "/support",
             text: "Support Us"
         }
     };
@@ -54,6 +55,8 @@ export const header = () => {
     <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div class="flex items-center justify-between h-20">
             <!-- Logo Section -->
+
+            <a href="${headerData.logo.path}">
             <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
                 <img
                     src="${headerData.logo.src}"
@@ -69,6 +72,7 @@ export const header = () => {
                     </p>
                 </div>
             </div>
+                </a>
 
             <!-- Desktop Navigation -->
             <nav class="hidden lg:block">

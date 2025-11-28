@@ -7,7 +7,6 @@ import { quickLinks } from "../components/quickLinks.js";
 import { news } from "../components/news.js";
 import { audioSpotlight } from "../components/audioSpotlight.js";
 import { gallery } from "../components/gallery.js";
-
 import { footer } from "../components/footer.js";
 
 import {safeInject} from "../utils.js";

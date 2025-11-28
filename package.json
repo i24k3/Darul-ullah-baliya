@@ -17,7 +17,7 @@
   "scripts": {
     "dev": "node ./src/home.js",
     "start": "serve src",
-    "new": "serve clean"
+    "new": "serve -s clean"
   },
   "dependencies": {
     "serve": "^14.2.5"

@@ -9,25 +9,25 @@ export const quickLinks = () => {
                 icon: "🕌",
                 title: "Prayer Timetable",
                 description: "View daily prayer times",
-                href: "#prayer"
+                href: "/prayer"
             },
             {
                 icon: "📚",
                 title: "Admissions",
                 description: "Join our programs",
-                href: "#admissions"
+                href: "/admissions"
             },
             {
                 icon: "🎵",
                 title: "Audio Library",
                 description: "Listen to lectures",
-                href: "#multimedia"
+                href: "/multimedia"
             },
             {
                 icon: "💬",
                 title: "Ask a Question",
                 description: "Get guidance",
-                href: "#contact"
+                href: "/contact"
             }
         ]
     };

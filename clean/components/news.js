@@ -8,13 +8,13 @@ export const news = () => {
                 date: "15 March 2024",
                 title: "New Academic Session Admissions Open",
                 description: "Admissions for the 1446 Hijri academic year are now open for Hifz and Aalim courses.",
-                link: "#"
+                link: "/announcements"
             },
             {
                 date: "10 March 2024",
                 title: "Ramadan Program Schedule",
                 description: "Special Ramadan programs including Taraweeh and Iftar arrangements announced.",
-                link: "#"
+                link: "/announcements"
             }
         ]
     };

@@ -8,12 +8,12 @@ export const hero = () => {
         author: "Prophet Muhammad (Peace and Blessings Be Upon Him)",
         buttons: [
             {
-                href: "#admissions",
+                href: "/admissions",
                 text: "Explore Admissions",
                 variant: "solid",           // solid = filled green button
             },
             {
-                href: "#support",
+                href: "/support",
                 text: "Support the Uloom",
                 variant: "outline",         // outline = transparent with border
             }
@@ -37,7 +37,7 @@ export const hero = () => {
         `)
         .join('');
 
-    return `
+return `
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Background -->
     <div class="absolute inset-0 -z-10">
@@ -47,21 +47,21 @@ export const hero = () => {
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/50"></div>
     </div>
 
-    <!-- Content -->
-    <div class="container mx-auto px-6 sm:px-8 lg:px-12 text-center text-white">
-        <div class="max-w-5xl mx-auto">
-            <blockquote class="mb-16 animate-fade-in">
-                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wide drop-shadow-2xl">
-                    "${heroData.quote}"
-                </h2>
-                <cite class="block mt-10 text-xl sm:text-2xl md:text-3xl font-medium italic opacity-90">
-                    — ${heroData.author}
-                </cite>
-            </blockquote>
-
-            <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                ${renderButtons()}
+    <!-- ADD z-10 HERE - THIS IS WHAT WAS MISSING -->
+    <div class="relative z-10 w-full text-center text-white">
+        <div class="container mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="max-w-5xl mx-auto">
+                <blockquote class="mb-16 animate-fade-in">
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-wide drop-shadow-2xl">
+                        "${heroData.quote}"
+                    </h2>
+                    <cite class="block mt-10 text-xl sm:text-2xl md:text-3xl font-medium italic opacity-90">
+                        — ${heroData.author}
+                    </cite>
+                </blockquote>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    ${renderButtons()}
+                </div>
             </div>
         </div>
     </div>
@@ -75,6 +75,7 @@ export const hero = () => {
     .animate-fade-in { animation: fade-in 1.4s ease-out forwards; }
 </style>
     `;
+
 };
 
 

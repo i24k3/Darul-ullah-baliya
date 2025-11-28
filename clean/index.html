@@ -32,5 +32,14 @@
 <body class="font-arabic">
         <div id="root"></div>
         <script type="module" src="./app.js"></script>
+<script>
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.mobile-menu-btn');
+    if (btn) {
+        document.querySelector('.mobile-menu')?.classList.toggle('hidden');
+    }
+});
+</script>
+    
 </body>
 </html>
