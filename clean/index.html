@@ -12,9 +12,21 @@
         .font-arabic { 
             font-family: 'Cairo', 'Amiri', sans-serif; 
         }
+
+        html {
+            overflow-y: scroll;           
+            scrollbar-width: none;        
+        }
         body { 
             direction: ltr; /* change to rtl when you go full Arabic */
+            -ms-overflow-style: none;     
         }
+        body::-webkit-scrollbar {
+            display: none;                /* Chrome, Safari, Opera */
+        }
+
+
+</style>
     </style>
 </head>
 <body class="font-arabic">

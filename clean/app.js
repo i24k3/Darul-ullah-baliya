@@ -1,10 +1,10 @@
 "use strict";
 
 import { addPage, initRouter } from "./utils.js";
-import { HomePage } from "./homepage.js";
+import { home } from "./pages/home.js";
 
 // routes
-addPage('/', HomePage);
+addPage('/', home);
 
 
 

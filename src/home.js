@@ -137,32 +137,6 @@ class HomePage {
         link: { href: "#multimedia", text: "View Full Gallery" }
     };
 }
-
-    getFooterData() {
-        return {
-            institution: {
-                name: "Darul Uloom Bilaliya",
-                address: "Ahmada Kadal, Lal Bazar<br>Srinagar, Jammu & Kashmir"
-            },
-            quickLinks: [
-                { href: "#about", text: "About Us" },
-                { href: "#academics", text: "Academics" },
-                { href: "#admissions", text: "Admissions" },
-                { href: "#contact", text: "Contact" }
-            ],
-            connectLinks: [
-                { href: "#multimedia", text: "Audio Lectures" },
-                { href: "#multimedia", text: "Photo Gallery" },
-                { href: "#resources", text: "Resources" },
-                { href: "#support", text: "Support Us" }
-            ],
-            contact: {
-                phone: "+91 99999 99999",
-                email: "info@darululoombilaliya.org"
-            }
-        };
-    }
-
     // Data Objects
     getHeaderData() {
         return {
@@ -349,62 +323,7 @@ const heroHTML = `
 
 
 
-
-    renderFooter() {
-        const data = this.getFooterData();
-        const quickLinksHTML = data.quickLinks.map(link => 
-            `<li><a href="${link.href}" class="nav-link text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform">${link.text}</a></li>`
-        ).join('');
-        
-        const connectLinksHTML = data.connectLinks.map(link => 
-            `<li><a href="${link.href}" class="nav-link text-gray-300 hover:text-white transition-colors hover:translate-x-1 transform">${link.text}</a></li>`
-        ).join('');
-
-        const footerHTML = `
-<footer class="main-footer bg-gray-900 text-white pt-20 pb-8">
-    <div class="container mx-auto px-4">
-        <div class="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div class="footer-section">
-                <h3 class="text-2xl font-arabic text-green-400 mb-4 font-bold">${data.institution.name}</h3>
-                <p class="text-gray-300 leading-relaxed">${data.institution.address}</p>
-            </div>
-            <div class="footer-section">
-                <h4 class="text-lg font-semibold mb-6 text-white">Quick Links</h4>
-                <ul class="space-y-3">
-                    ${quickLinksHTML}
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="text-lg font-semibold mb-6 text-white">Connect</h4>
-                <ul class="space-y-3">
-                    ${connectLinksHTML}
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="text-lg font-semibold mb-6 text-white">Contact Info</h4>
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    Phone: ${data.contact.phone}<br>
-                    Email: ${data.contact.email}
-                </p>
-                <div class="newsletter flex rounded-lg overflow-hidden shadow-lg">
-                    <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 text-gray-800 focus:outline-none">
-                    <button class="btn-subscribe bg-green-700 text-white px-6 hover:bg-green-800 transition-colors font-medium">
-                        Subscribe
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom border-t border-gray-700 pt-8 text-center text-gray-400">
-            <p class="text-sm">&copy; 2024 Darul Uloom Bilaliya. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-`;
-
-        safeInject(footerHTML, this.rootElement);
-    }
-
-    attachEventListeners() {
+   attachEventListeners() {
         setTimeout(() => {
             // Mobile menu toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
