@@ -59,57 +59,6 @@ class HomePage {
         };
     }
 
-    getQuickLinksData() {
-        return {
-            items: [
-                {
-                    icon: "🕌",
-                    title: "Prayer Timetable",
-                    description: "View daily prayer times",
-                    href: "#prayer"
-                },
-                {
-                    icon: "📚",
-                    title: "Admissions",
-                    description: "Join our programs",
-                    href: "#admissions"
-                },
-                {
-                    icon: "🎵",
-                    title: "Audio Library",
-                    description: "Listen to lectures",
-                    href: "#multimedia"
-                },
-                {
-                    icon: "💬",
-                    title: "Ask a Question",
-                    description: "Get guidance",
-                    href: "#contact"
-                }
-            ]
-        };
-    }
-
-    getNewsData() {
-        return {
-            title: "Latest News & Announcements",
-            items: [
-                {
-                    date: "15 March 2024",
-                    title: "New Academic Session Admissions Open",
-                    description: "Admissions for the 1446 Hijri academic year are now open for Hifz and Aalim courses.",
-                    link: "#"
-                },
-                {
-                    date: "10 March 2024",
-                    title: "Ramadan Program Schedule",
-                    description: "Special Ramadan programs including Taraweeh and Iftar arrangements announced.",
-                    link: "#"
-                }
-            ]
-        };
-    }
-
     getAudioData() {
     return {
         title: "Latest from Mufti Sahib",
@@ -123,20 +72,7 @@ class HomePage {
 }
 
 
-    getGalleryData() {
-    return {
-        title: "Campus Life",
-        images: [
-            { src: "https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg", alt: "Main Masjid" },
-            { src: "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg", alt: "Classroom" },
-            { src: "https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg", alt: "Students" },
-            { src: "https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg", alt: "Students" },
-            { src: "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg", alt: "Students" },
-            { src: "https://images.pexels.com/photos/207693/pexels-photo-207693.jpeg", alt: "Students" }
-        ],
-        link: { href: "#multimedia", text: "View Full Gallery" }
-    };
-}
+ }
     // Data Objects
     getHeaderData() {
         return {
@@ -157,168 +93,6 @@ class HomePage {
                 { href: "#support", text: "Support Us", cta: true }
             ]
         };
-    }
-
-    renderHeader() {
-        Header(this.rootElement, "home");
-    }
-
-    renderHero() {
-    const data = this.getHeroData();
-    const buttonsHTML = data.buttons.map(button => 
-        `<a href="${button.href}" class="${button.class} px-8 py-4 rounded-lg transition-all transform hover:-translate-y-1 font-semibold text-center shadow-lg hover:shadow-xl">${button.text}</a>`
-    ).join('');
-
-
-const heroHTML = `
-<section class="hero relative h-96 md:h-screen-70 min-h-96 overflow-hidden">
-    <div class="hero-background absolute inset-0">
-        <img src="${data.backgroundImage}" alt="${data.alt}" class="w-full h-full object-cover">
-        <!-- ENHANCED OVERLAY FOR BETTER TEXT READABILITY -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
-    </div>
-    <div class="hero-content relative z-10 h-full flex items-center text-white">
-        <div class="container mx-auto px-4">
-            <blockquote class="hero-quote text-3xl md:text-5xl font-bold mb-8 max-w-4xl leading-tight drop-shadow-2xl text-white">
-                "${data.quote}"
-                <cite class="block text-xl md:text-2xl font-normal mt-6 opacity-95 italic text-white">— ${data.author}</cite>
-            </blockquote>
-            <div class="hero-buttons flex flex-col sm:flex-row gap-6">
-                ${buttonsHTML}
-            </div>
-        </div>
-    </div>
-</section>
-`;
-    safeInject(heroHTML, this.rootElement);
-}
-
-    renderWelcome() {
-        const data = this.getWelcomeData();
-        const paragraphsHTML = data.paragraphs.map(p => 
-            `<p class="text-lg text-gray-700 mb-6 leading-relaxed">${p}</p>`
-        ).join('');
-
-        const welcomeHTML = `
-<section class="welcome-section bg-gradient-to-br from-beige-50 to-green-50 py-20">
-    <div class="container mx-auto px-4">
-        <div class="welcome-content max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-arabic text-green-800 mb-8 font-bold drop-shadow-sm">${data.title}</h2>
-            ${paragraphsHTML}
-            <a href="${data.link.href}" class="read-more text-green-700 font-semibold hover:text-green-800 inline-flex items-center group transition-all">
-                ${data.link.text}
-                <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-        </div>
-    </div>
-</section>
-`;
-
-        safeInject(welcomeHTML, this.rootElement);
-    }
-
-    renderQuickLinks() {
-        const data = this.getQuickLinksData();
-        const itemsHTML = data.items.map(item => `
-            <a href="${item.href}" class="grid-item bg-white p-8 text-center rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100 group">
-                <div class="grid-icon text-5xl mb-6 transform group-hover:scale-110 transition-transform">${item.icon}</div>
-                <h3 class="text-xl font-arabic text-green-700 mb-4 font-semibold">${item.title}</h3>
-                <p class="text-gray-600">${item.description}</p>
-            </a>
-        `).join('');
-
-        const quickLinksHTML = `
-<section class="quick-links py-20 bg-gradient-to-b from-white to-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            ${itemsHTML}
-        </div>
-    </div>
-</section>
-`;
-
-        safeInject(quickLinksHTML, this.rootElement);
-    }
-
-    renderNews() {
-        const data = this.getNewsData();
-        const itemsHTML = data.items.map(item => `
-            <div class="news-card bg-white p-8 rounded-2xl shadow-lg border-l-4 border-green-600 hover:shadow-xl transition-all">
-                <div class="news-date text-green-600 font-semibold mb-4 text-sm uppercase tracking-wide">${item.date}</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-4">${item.title}</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">${item.description}</p>
-                <a href="${item.link}" class="news-link text-green-700 font-semibold hover:text-green-800 inline-flex items-center group transition-all">
-                    Read More <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-                </a>
-            </div>
-        `).join('');
-
-        const newsHTML = `
-<section class="news-section py-20 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-4">
-        <h2 class="section-title text-4xl font-arabic text-green-800 text-center mb-16 font-bold">${data.title}</h2>
-        <div class="news-grid grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            ${itemsHTML}
-        </div>
-    </div>
-</section>
-`;
-
-        safeInject(newsHTML, this.rootElement);
-    }
-
-    renderAudioSpotlight() {
-        const data = this.getAudioData();
-        const audioHTML = `
-<section class="audio-spotlight py-20 bg-gradient-to-br from-white to-beige-50">
-    <div class="container mx-auto px-4">
-        <h2 class="section-title text-4xl font-arabic text-green-800 text-center mb-16 font-bold">${data.title}</h2>
-        <div class="audio-player max-w-4xl mx-auto bg-white p-10 rounded-3xl shadow-2xl text-center border border-gray-100">
-            <div class="audio-info mb-8">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-2">${data.audio.title}</h3>
-                <p class="text-gray-600 text-lg">${data.audio.date}</p>
-            </div>
-            <audio controls class="custom-audio w-full max-w-2xl mx-auto mb-8 rounded-lg shadow-inner">
-                <source src="${data.audio.src}" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <a href="${data.audio.link.href}" class="all-lectures-link text-green-700 font-semibold hover:text-green-800 inline-flex items-center group transition-all">
-                ${data.audio.link.text} <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-        </div>
-    </div>
-</section>
-`;
-
-        safeInject(audioHTML, this.rootElement);
-    }
-
-    renderGallery() {
-        const data = this.getGalleryData();
-        const imagesHTML = data.images.map(image => `
-            <div class="gallery-item rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl group">
-                <img src="${image.src}" alt="${image.alt}" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
-                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
-            </div>
-        `).join('');
-
-        const galleryHTML = `
-<section class="gallery-preview py-20 bg-gradient-to-b from-gray-50 to-white">
-    <div class="container mx-auto px-4">
-        <h2 class="section-title text-4xl font-arabic text-green-800 text-center mb-16 font-bold">${data.title}</h2>
-        <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            ${imagesHTML}
-        </div>
-        <div class="text-center">
-            <a href="${data.link.href}" class="btn-outline border-2 border-green-700 text-green-700 px-8 py-4 rounded-lg hover:bg-green-700 hover:text-white transition-all font-semibold inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                ${data.link.text}
-            </a>
-        </div>
-    </div>
-</section>
-`;
-
-        safeInject(galleryHTML, this.rootElement);
     }
 
 
@@ -380,5 +154,4 @@ const heroHTML = `
 }
 
 export { HomePage };
-
 
