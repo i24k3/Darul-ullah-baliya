@@ -1,3 +1,4 @@
+/*
 "use strict";
 
 export const header = () => {
@@ -117,3 +118,44 @@ export const header = () => {
     `;
 };
 
+*/
+export const header = () => {
+  const headerData = {
+    logo: {
+      path: "/",
+      src: "https://cdn-icons-png.flaticon.com/128/17517/17517807.png", // Replace with real logo later
+      alt: "Darul Uloom Bilaliya",
+      arabicName: "دار العلوم بلالية",
+      englishName: "Darul Uloom Bilaliya"
+    },
+    navLinks: [
+      { href: "/about", text: "About" },
+      { href: "/academics", text: "Academics" },
+      { href: "/admissions", text: "Admissions" },
+      { href: "/anounce", text: "Announcements" },
+      { href: "/contact", text: "Contact" }
+    ],
+    ctaButton: {
+      href: "/support",
+      text: "Support Us"
+    }
+  };
+
+  const renderNavItems = (size = "desktop") => {
+    const baseClasses = size === "mobile" 
+      ? "block py-4 text-2xl font-medium" 
+      : "text-base font-medium tracking-wide";
+
+    return headerData.navLinks
+      .map(link => `
+        <li>
+          <a href="${link.href}"
+             class="${baseClasses} text-gray-300 hover:text-white transition relative
+                    after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 
+                    after:bg-white after:transition-all after:duration-300 
+                    hover:after:w-full">
+            ${link.text}
+          </a>
+        </li>
+      `).join('');
+  };

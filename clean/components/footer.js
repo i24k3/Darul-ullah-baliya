@@ -119,8 +119,7 @@ export const footer = () => {
         <div class="border-t border-gray-800 pt-8 text-center">
             <p class="text-gray-400 text-sm">
                 © ${new Date().getFullYear()} Darul Uloom Bilaliya. All rights reserved.
-                <span class="text-green-400 mx-2">•</span>
-                Made with love for the Ummah
+                <p>Made with love for the Ummah</p>
             </p>
         </div>
     </div>

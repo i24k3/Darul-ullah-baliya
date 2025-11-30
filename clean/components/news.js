@@ -8,13 +8,11 @@ export const news = () => {
                 date: "15 March 2024",
                 title: "New Academic Session Admissions Open",
                 description: "Admissions for the 1446 Hijri academic year are now open for Hifz and Aalim courses.",
-                link: "/announcements"
             },
             {
                 date: "10 March 2024",
                 title: "Ramadan Program Schedule",
                 description: "Special Ramadan programs including Taraweeh and Iftar arrangements announced.",
-                link: "/announcements"
             }
         ]
     };
@@ -24,7 +22,7 @@ const itemsHTML = data.items.map(item => `
                 <div class="news-date text-green-600 font-semibold mb-4 text-sm uppercase tracking-wide">${item.date}</div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">${item.title}</h3>
                 <p class="text-gray-600 mb-6 leading-relaxed">${item.description}</p>
-                <a href="${item.link}" class="news-link text-green-700 font-semibold hover:text-green-800 inline-flex items-center group transition-all">
+                <a href="/anounce" class="news-link text-green-700 font-semibold hover:text-green-800 inline-flex items-center group transition-all">
                     Read More <span class="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
                 </a>
             </div>
