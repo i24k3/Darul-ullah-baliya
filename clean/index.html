@@ -34,43 +34,21 @@
         }
 
         /* Smooth fade-in for page loader */
-        #page-loader {
+        #root {
+            opacity: 0;
             transition: opacity 0.8s ease-out;
         }
+
+        #root.visible {
+            opacity: 1;
+        }
+
         </style>
     </head>
 
     <body class="font-arabic bg-gray-50 min-h-screen">
-
-        <!-- Main App Root -->
         <div id="root"></div>
-
-        <!-- ==================== SCRIPTS ==================== -->
-        <script type="module">
-        import { showPageLoader } from "./components/loading.js";
-        import { initRouter } from "./utils.js";
-
-        // 1. Show Bismillah loader immediately
-        showPageLoader();
-
-        // 2. Wait for DOM + fonts + minimal delay, then boot the app
-        window.addEventListener('DOMContentLoaded', () => {
-            // Small extra delay to ensure the loader feels intentional (Islamic vibe)
-            setTimeout(() => {
-                // Hide loader smoothly
-                if (window.hidePageLoader) {
-                    window.hidePageLoader();
-                }
-
-                // Now start routing & render first page
-                initRouter();
-            }, 1200); // You can increase to 1200–1500ms for more dramatic effect
-        });
-        </script>
-
-        <!-- Your main app (pages, components, etc.) -->
         <script type="module" src="./app.js"></script>
-
         <!-- Optional: Fallback if something goes wrong -->
         <noscript>
             <div class="fixed inset-0 bg-red-600 text-white flex items-center justify-center text-center p-8 z-50">

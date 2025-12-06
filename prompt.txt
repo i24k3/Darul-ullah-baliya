@@ -1,0 +1,48 @@
+I have a JavaScript/HTML component function that renders part of my website (header, hero, footer, or other sections). I want you to refactor it to have a **premium, modern, minimal, clean design**, consistent with my site’s current style. 
+
+Here are the rules:
+
+1. Use **Tailwind CSS** for styling.
+2. All colors must come from my `colors` object (example below), not hardcoded Tailwind colors:
+
+```javascript
+export const colors = {
+  primary: { base: "text-emerald-700", bg: "bg-emerald-600", hover: "hover:bg-emerald-700" },
+  secondary: { base: "text-amber-700", bg: "bg-amber-500", hover: "hover:bg-amber-600" },
+  neutral: {
+    light: "text-gray-200", 
+    medium: "text-gray-500",
+    dark: "text-gray-800",
+    bg: "bg-gray-50",
+    border: "border-gray-200"
+  },
+  white: { base: "text-white", bg: "bg-white" },
+  black: { base: "text-black", bg: "bg-black" }
+};
+```
+Maintain all functional parts (links, buttons, mobile toggles, forms, images, etc.) intact.
+
+Ensure text contrast is high on background images or gradients.
+
+For background images behind text, use blurs and subtle gradients like a premium website.
+
+All buttons must have hover animations, subtle shadows, and transformations (hover:-translate-y-0.5, hover:shadow-xl) for a rich feel.
+
+Use container max-widths, spacing, and responsive layouts like the example site (header, hero, footer) I gave.
+
+Ensure mobile menus and responsive behavior are preserved.
+
+Avoid any hardcoded colors or arbitrary styles—everything must be driven from the colors object or Tailwind utility classes.
+
+Output the entire component as a template string ready for export.
+
+Here is the component function:
+```
+
+```
+
+Refactor it so it looks premium, clean, modern, and visually consistent with the rest of my site. Keep all spacing, padding, and responsive behavior professional, elegant, and minimal. Use subtle gradients, shadow effects, and transitions where appropriate. Make it visually balanced and easy to read on all devices.
+refactor this.
+``` 
+```
+

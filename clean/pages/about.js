@@ -2,183 +2,337 @@
 
 import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
-
 import { safeInject } from "../utils.js";
-
-
-const pageHeader = () => {
-    const data = {
-        title: "About Darul Uloom Bilaliya",
-        subtitle: "Our Legacy, Mission, and Vision for Islamic Education"
-    };
-
-    return `
-        <section class="bg-gradient-to-r from-green-800 to-green-700 text-white pt-32 pb-16">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-arabic font-bold mb-6 drop-shadow-lg">${data.title}</h1>
-                <p class="text-xl opacity-95 max-w-2xl mx-auto leading-relaxed">${data.subtitle}</p>
-            </div>
-        </section> `;
-}
+import { colors } from "../colors.js";
 
 const history = () => {
     const data = {
-        title: "Our History & Legacy",
+        title: "Our Journey • From Humble Beginnings to a Beacon of Knowledge",
         paragraphs: [
             "Established on 11th Shawwal ul Mukaram 1411 Hijri (1991 CE), Darul Uloom Bilaliya began as a humble institution on a small plot of land (40×60 sq. ft.) in Bilalabad, Lal Bazar. Founded with the vision of preserving authentic Islamic knowledge, the institution grew under the spiritual guidance of renowned scholars including Sheikh Maulana Maseehullah Khan (RA).",
-            "Through community support and divine blessings, the Darul Uloom has expanded to become one of the leading centers of Deobandi education in Kashmir, currently accommodating over 550 residential students and 60 dedicated staff members."
+            "Through unwavering community support, divine blessings, and decades of dedication, Darul Uloom Bilaliya has transformed into one of the leading centers of Deobandi education in Kashmir — currently nurturing over 550 residential students and supported by 60 devoted staff members."
         ],
-        image: {
-            src: "https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg", // Placeholder
-            alt: "Original Darul Uloom Building"
-        },
-        milestone: {
-            year: "1991",
-            text: "Year Established"
-        }
+        milestone: { year: "1991", text: "Founded with Barakah" },
+        image: "https://images.pexels.com/photos/1275393/pexels-photo-1275393.jpeg"
     };
-    const paragraphsHTML = data.paragraphs.map(p => `<p class="text-lg text-gray-700 leading-relaxed mb-6">${p}</p>`).join('');
 
     return `
-        <section class="py-20 bg-gradient-to-br from-white to-beige-50">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <h2 class="text-3xl md:text-4xl font-arabic text-green-800 mb-6 font-bold">${data.title}</h2>
-                        ${paragraphsHTML}
+<section class="py-32 bg-gradient-to-b from-${colors.neutral.bg} to-white">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+
+            <!-- TEXT SIDE -->
+            <div class="space-y-12">
+                <!-- Title -->
+                <div>
+                    <h2 class="text-5xl md:text-6xl font-extrabold ${colors.black.base} tracking-tight">
+                        ${data.title.split(' • ')[0]}
+                    </h2>
+                    <p class="mt-4 text-xl md:text-2xl ${colors.neutral.dark} font-medium leading-relaxed">
+                        ${data.title.split(' • ')[1]}
+                    </p>
+                </div>
+
+                <!-- Paragraphs -->
+                <div class="space-y-7 text-lg leading-relaxed max-w-xl ${colors.neutral.dark}">
+                    ${data.paragraphs.map(p => `<p class="${colors.neutral.medium}">${p}</p>`).join('')}
+                </div>
+
+                <!-- Milestone -->
+                <div class="flex items-center gap-8 pt-10">
+                    <div class="w-32 h-32 rounded-2xl ${colors.white.bg} shadow-[0_8px_40px_rgba(0,0,0,0.08)] border ${colors.neutral.border} flex flex-col items-center justify-center">
+                        <span class="text-4xl font-extrabold ${colors.primary.base}">${data.milestone.year}</span>
+                        <span class="text-xs tracking-wider ${colors.neutral.medium} mt-1">Hijri 1411</span>
                     </div>
-                    <div class="relative">
-                        <img src="${data.image.src}" alt="${data.image.alt}" class="rounded-2xl shadow-2xl w-full h-96 object-cover">
-                        <div class="absolute -bottom-6 -left-6 bg-green-700 text-white p-8 rounded-2xl shadow-2xl">
-                        <div class="text-4xl font-bold">${data.milestone.year}</div>
-                        <div class="text-sm opacity-90">${data.milestone.text}</div>
-                    </div>
+                    <div>
+                        <p class="text-3xl font-bold ${colors.black.base}">Established</p>
+                        <p class="text-lg font-medium ${colors.neutral.dark}">${data.milestone.text}</p>
                     </div>
                 </div>
             </div>
-        </section> `;
-} 
+
+            <!-- IMAGE SIDE -->
+            <div class="relative">
+
+                <div class="rounded-3xl overflow-hidden shadow-2xl border ${colors.neutral.border} ${colors.white.bg}">
+                    <img 
+                        src="${data.image}" 
+                        alt="Original Darul Uloom Building" 
+                        class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Floating Quote Box -->
+                <div class="absolute -bottom-12 -left-12 backdrop-blur-xl ${colors.white.bg}/70 border ${colors.white.bg}/40 shadow-xl p-8 rounded-2xl max-w-xs">
+                    <p class="text-xl font-medium ${colors.neutral.dark} leading-relaxed italic">
+                        "من عمل صالحا فلنفسه"
+                    </p>
+                    <p class="mt-4 text-sm ${colors.neutral.dark} text-right">
+                        — Whoever does righteousness, it is for his own soul
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+`;
+};
+
 
 const vision = () => {
-
-    const data = {
-        items: [
-            {
-                icon: "🎯",
-                title: "Our Mission",
-                description: "To impart authentic Islamic education rooted in the Qur'an and Sunnah, cultivating students into morally upright, intellectually rigorous, and spiritually grounded individuals who contribute positively to society."
-            },
-            {
-                icon: "🌟",
-                title: "Our Vision",
-                description: "To be a leading beacon of classical Islamic scholarship in Kashmir, preserving the rich tradition of the Deobandi school while responsibly addressing the needs of the contemporary Muslim Ummah."
-            }
-        ]
-    };
-
-    const itemsHTML = data.items.map(item => `
-        <div class="bg-white p-10 rounded-2xl shadow-xl text-center border-t-4 border-green-600 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-            <div class="text-5xl mb-6 transform hover:scale-110 transition-transform">${item.icon}</div>
-            <h3 class="text-2xl font-arabic text-green-800 mb-6 font-bold">${item.title}</h3>
-            <p class="text-gray-600 leading-relaxed text-lg">${item.description}</p>
-        </div> `).join('');
+    const items = [
+        {
+            title: "Our Mission",
+            description: "To impart authentic Islamic education rooted in the Qur'an and Sunnah, cultivating students into morally upright, intellectually rigorous, and spiritually grounded individuals who contribute positively to society."
+        },
+        {
+            title: "Our Vision",
+            description: "To be a leading beacon of classical Islamic scholarship in Kashmir, preserving the rich tradition of the Deobandi school while responsibly addressing the needs of the contemporary Muslim Ummah."
+        }
+    ];
 
     return `
-        <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                ${itemsHTML}
-                </div>
-            </div>
-        </section> `;
-}
+<section class="py-32 ${colors.neutral.bg} overflow-hidden">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <!-- Section Heading -->
+        <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-6xl font-black ${colors.black.base} tracking-tight">
+                Guided by Purpose
+            </h2>
+            <p class="mt-6 text-xl ${colors.neutral.dark} max-w-3xl mx-auto leading-relaxed">
+                Rooted in tradition. Driven by excellence. Devoted to service.
+            </p>
+        </div>
 
+        <!-- Mission & Vision Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            ${items.map(item => `
+                <div class="group relative ${colors.white.bg} rounded-3xl p-12 shadow-xl hover:shadow-2xl transition-all duration-500 border ${colors.neutral.border} overflow-hidden">
+                    <!-- Subtle Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-${colors.primary.bg}/30 to-${colors.primary.hover}/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black ${colors.black.base} mb-6 text-center font-arabic">
+                            ${item.title}
+                        </h3>
+                        <p class="text-lg ${colors.neutral.dark} leading-relaxed text-center">
+                            ${item.description}
+                        </p>
+                    </div>
+
+                    <!-- Bottom Accent Line -->
+                    <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-${colors.primary.bg} to-${colors.primary.hover} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                </div>
+            `).join('')}
+        </div>
+    </div>
+</section>
+`;
+};
 
 const leadership = () => {
-    const data = {
-        title: "Our Leadership",
-        members: [
-            {
-                image: "images/Screenshot_20251011_132138-1.png",
-                alt: "Mufti Sahib",
-                name: "Hazrat Mufti Abdur Rashid Miftahi Sb Db",
-                position: "Principal & Chief Mufti",
-                description: "With over 20 years of experience in Islamic education and scholarship, Mufti Sahib provides spiritual and academic leadership to the institution."
-            },
-            {
-                image: null,
-                alt: "Vice Principal",
-                name: "Maulana [Name]",
-                position: "Vice Principal",
-                description: "Overseeing the daily academic operations and student welfare, ensuring the smooth functioning of all educational programs."
-            }
-        ]
-    };
-
-    const membersHTML = data.members.map(member => `
-        <div class="bg-white p-8 rounded-2xl shadow-xl text-center border border-gray-100 hover:shadow-2xl transition-all transform hover:-translate-y-2">
-            <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-green-100 shadow-lg">
-                ${member.image ? `<img src="${member.image}" alt="${member.alt}" class="w-full h-full object-cover">` : `<div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-sm">Image</div>`} 
-            </div>
-            <h3 class="text-xl font-arabic text-gray-800 mb-2 font-semibold">${member.name}</h3>
-            <p class="text-green-600 font-semibold mb-4 text-lg">${member.position}</p>
-            <p class="text-gray-600 text-sm leading-relaxed">${member.description}</p>
-        </div> `).join('');
-
-    return`
-        <section class="py-20 bg-gradient-to-br from-white to-beige-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-arabic text-green-800 text-center mb-16 font-bold">${data.title}</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                ${membersHTML}
-                </div>
-            </div>
-        </section> `;
-}
-
-
-const facilities = () => {
-    const data = {
-        title: "Our Facilities",
-        items: [
-            {
-                icon: "🕌",
-                title: "Main Masjid",
-                description: "Spacious prayer hall accommodating 500+ worshippers with separate sections."
-            },
-            {
-                icon: "📚",
-                title: "Classrooms",
-                description: "Well-ventilated classrooms equipped with modern teaching aids."
-            },
-            {
-                icon: "🏢",
-                title: "Student Hostels",
-                description: "Comfortable residential facilities for 550+ students."
-            },
-            {
-                icon: "🍽️",
-                title: "Dining Hall",
-                description: "Clean and hygienic dining facility serving nutritious meals."
-            }
-        ]
-    };
-
-    const itemsHTML = data.items.map(item => `
-        <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all transform hover:-translate-y-2 group">
-            <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">${item.icon}</div>
-            <h3 class="text-lg font-arabic text-green-800 mb-4 font-semibold">${item.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">${item.description}</p>
-        </div> `).join('');
+    const members = [
+        {
+            image: "https://images.pexels.com/photos/34610053/pexels-photo-34610053.jpeg",
+            name: "Hazrat Mufti Abdur Rashid Miftahi Sb Db",
+            position: "Principal & Chief Mufti",
+            description: "With over 20 years of experience in Islamic education and scholarship, Mufti Sahib provides spiritual and academic leadership to the institution."
+        },
+        {
+            image: "https://images.pexels.com/photos/34043418/pexels-photo-34043418.jpeg",
+            name: "Maulana [Name]",
+            position: "Vice Principal",
+            description: "Overseeing the daily academic operations and student welfare, ensuring the smooth functioning of all educational programs."
+        }
+    ];
 
     return `
-        <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-arabic text-green-800 text-center mb-16 font-bold">${data.title}</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"> ${itemsHTML} </div>
+<section class="py-32 ${colors.neutral.bg} overflow-hidden">
+    <div class="container mx-auto px-6 max-w-7xl">
+        <!-- Section Heading -->
+        <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-6xl font-black ${colors.black.base} tracking-tight">
+                Our Leadership
+            </h2>
+            <p class="mt-6 text-xl ${colors.neutral.dark} max-w-3xl mx-auto leading-relaxed">
+                Guided by scholars of knowledge, compassion, and unwavering dedication
+            </p>
+        </div>
+
+        <!-- Leadership Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            ${members.map(member => `
+                <div class="group ${colors.white.bg} rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden border ${colors.neutral.border}">
+                    <div class="p-12 text-center">
+                        <!-- Member Image -->
+                        <div class="w-40 h-40 mx-auto mb-10 rounded-full overflow-hidden border-8 border-${colors.white.bg} shadow-2xl ring-4 ring-${colors.primary.bg} group-hover:ring-${colors.primary.hover} transition-all">
+                            ${member.image 
+                                ? `<img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">`
+                                : `<div class="w-full h-full bg-gradient-to-br from-${colors.neutral.light} to-${colors.neutral.medium} flex items-center justify-center">
+                                        <span class="text-5xl ${colors.neutral.medium}">person</span>
+                                   </div>`
+                            }
+                        </div>
+
+                        <!-- Name & Position -->
+                        <h3 class="text-2xl md:text-3xl font-black ${colors.black.base} mb-3 font-arabic leading-tight">
+                            ${member.name}
+                        </h3>
+                        <p class="text-xl font-bold ${colors.primary.base} mb-6 tracking-wide">
+                            ${member.position}
+                        </p>
+
+                        <!-- Description -->
+                        <p class="${colors.neutral.dark} leading-relaxed text-lg">
+                            ${member.description}
+                        </p>
+                    </div>
+
+                    <!-- Elegant Bottom Border -->
+                    <div class="h-1 bg-gradient-to-r from-transparent via-${colors.primary.bg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                </div>
+            `).join('')}
+        </div>
+    </div>
+</section>
+`;
+};
+
+const facilities = () => {
+  const facilitiesList = [
+    { 
+      img: "https://images.pexels.com/photos/532792/pexels-photo-532792.jpeg", 
+      title: "Main Masjid", 
+      desc: "Spacious prayer hall accommodating 500+ worshippers with separate sections." 
+    },
+    { 
+      img: "https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg", 
+      title: "Classrooms", 
+      desc: "Well-ventilated classrooms equipped with modern teaching aids." 
+    },
+    { 
+      img: "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg", 
+      title: "Student Hostels", 
+      desc: "Comfortable residential facilities for 550+ students." 
+    },
+    { 
+      img: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg", 
+      title: "Dining Hall", 
+      desc: "Clean and hygienic dining facility serving nutritious meals." 
+    }
+  ];
+
+  return `
+<section class="py-32 ${colors.white.bg} relative overflow-hidden">
+
+  <!-- Soft background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-black/5 via-white/60 to-gray-100/40 pointer-events-none"></div>
+
+  <div class="relative container mx-auto px-6 max-w-7xl">
+
+    <!-- Section Heading -->
+    <div class="text-center mb-20">
+      <h2 class="text-5xl md:text-6xl font-black ${colors.black.base} tracking-tight">
+        Our Facilities
+      </h2>
+      <p class="mt-6 text-xl ${colors.neutral.medium} max-w-3xl mx-auto leading-relaxed">
+        A nurturing environment designed for spiritual growth and academic excellence
+      </p>
+    </div>
+
+    <!-- Facility Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      ${facilitiesList
+        .map(
+          (f) => `
+        <div 
+          class="
+            group relative ${colors.white.bg} 
+            rounded-3xl p-10 text-center 
+            shadow-md hover:shadow-2xl 
+            transition-all duration-500 
+            border ${colors.neutral.border} 
+            overflow-hidden backdrop-blur-xl
+          "
+        >
+
+          <!-- Glow Background -->
+          <div 
+            class="
+              absolute inset-0 opacity-0 
+              bg-gradient-to-br from-emerald-50/50 to-green-100/40 
+              group-hover:opacity-100 
+              transition-opacity duration-700
+            "
+          ></div>
+
+          <div class="relative z-10">
+
+            <!-- Icon Image -->
+            <div 
+              class="
+                w-28 h-28 mx-auto mb-8 overflow-hidden rounded-3xl 
+                shadow-xl ring-2 ring-emerald-600/20 
+                transform transition-all duration-500 
+                group-hover:scale-110 group-hover:rotate-3
+                bg-white
+              "
+            >
+              <img 
+                src="${f.img}" 
+                alt="${f.title}" 
+                class="w-full h-full object-cover"
+              >
             </div>
-        </section> `;
-}
+
+            <!-- Title -->
+            <h3 
+              class="
+                text-2xl font-bold ${colors.black.base} 
+                mb-4 tracking-tight
+              "
+            >
+              ${f.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="${colors.neutral.dark} leading-relaxed text-base">
+              ${f.desc}
+            </p>
+
+          </div>
+
+          <!-- Floating Accent Halo -->
+          <div 
+            class="
+              absolute top-4 right-4 w-24 h-24 
+              bg-emerald-100 rounded-full blur-3xl 
+              opacity-0 group-hover:opacity-40 
+              transition-opacity duration-700
+            "
+          ></div>
+
+        </div>
+      `
+        )
+        .join("")}
+
+    </div>
+
+    <!-- Closing Note -->
+    <div class="text-center mt-20">
+      <p class="${colors.neutral.medium} text-lg italic tracking-wider">
+        Every corner built with barakah and excellence • Established 1991
+      </p>
+    </div>
+
+  </div>
+</section>
+`;
+};
 
 
 export const about = () => {
@@ -186,7 +340,6 @@ export const about = () => {
     root.innerHTML = ''; 
 
     safeInject(header(), root);
-    safeInject(pageHeader(), root);
     safeInject(history(), root);
     safeInject(vision(), root);
     safeInject(leadership(), root);

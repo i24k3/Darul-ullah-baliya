@@ -1,6 +1,5 @@
-"use strict";
 
-export const gallery = () => {
+const gallery = () => {
     const data =  {
         title: "Campus Life",
         images: [
