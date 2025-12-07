@@ -14,7 +14,7 @@ export const newsCard = (data, announcementId) => {
   return `
     <article data-category="${category.toLowerCase()}" data-date="${data.date || ''}"
              class="group bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border border-gray-100 cursor-pointer"
-             onclick="goTo('${link}')">
+>
       
       <!-- Image -->
       <div class="relative overflow-hidden">
@@ -62,7 +62,6 @@ export const newsCard = (data, announcementId) => {
         <!-- Read More - Luxury Touch -->
         <div class="pt-4">
           <a href="${link}" 
-             onclick="event.preventDefault(); goTo('${link}');"
              class="inline-flex items-center text-black font-bold text-lg hover:gap-4 transition-all duration-300 group/link">
             Read More
             <svg class="w-5 h-5 ml-2 transition-transform group-hover/link:translate-x-2" 

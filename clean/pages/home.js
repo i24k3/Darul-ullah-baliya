@@ -129,7 +129,6 @@ const welcome = () => {
       <!-- Premium Button / Link -->
       <a 
         href="${data.link.href}"
-        onclick="event.preventDefault(); goTo('${data.link.href}');"
         class="
           inline-flex items-center gap-3 mt-10 px-8 py-4
           rounded-full text-lg font-semibold
@@ -307,7 +306,6 @@ const news = () => {
           <!-- Read More -->
           <a 
             href="/anounce"
-            onclick="event.preventDefault(); goTo('/anounce');"
 
            class="inline-block mt-6 font-semibold text-green-700 hover:text-green-900 transition-colors">
             Read More

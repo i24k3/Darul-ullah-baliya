@@ -336,6 +336,7 @@ const facilities = () => {
 
 
 export const about = () => {
+
     const root = document.getElementById("root");
     root.innerHTML = ''; 
 

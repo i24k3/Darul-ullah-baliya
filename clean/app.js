@@ -4,11 +4,13 @@ import { home } from "./pages/home.js";
 import { about } from "./pages/about.js";
 import { anounce } from "./pages/anounce.js";
 import { showPageLoader } from "./components/loading.js";
+import { academics } from "./pages/academics.js";
 
 // 1. Register pages
 addPage('/', home);
 addPage('about', about);
 addPage('anounce', anounce);
+addPage('academics', academics);
 
 // 2. Show loader immediately
 showPageLoader("Bismillah...", 1200);

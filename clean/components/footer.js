@@ -32,7 +32,6 @@ export const footer = () => {
         <li>
           <a 
             href="${link.href}" 
-            onclick="event.preventDefault(); goTo('${link.href}');"
             class="${colors.neutral.dark} hover:${colors.black.base} transition-all duration-300 tracking-wide"
           >
             ${link.text}

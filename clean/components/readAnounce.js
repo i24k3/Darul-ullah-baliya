@@ -15,8 +15,7 @@ export const readAnounce = (post) => {
             Page not found
           </p>
 
-          <a href="/anounce" onclick="event.preventDefault(); goTo('/anounce');"
-             class="inline-flex items-center gap-4 px-8 py-4 sm:px-10 sm:py-5 
+          <a href="/anounce" class="inline-flex items-center gap-4 px-8 py-4 sm:px-10 sm:py-5 
              ${colors.black.bg} ${colors.white.base} text-base sm:text-lg font-semibold 
              rounded-full shadow-xl hover:bg-black/80 transition-all hover:-translate-y-0.5 hover:shadow-2xl">
 
@@ -49,8 +48,7 @@ export const readAnounce = (post) => {
           <div class="px-6 sm:px-12 pt-12 sm:pt-16 pb-10 sm:pb-12 ${colors.white.bg} border-b ${colors.neutral.border}">
 
             <!-- Back Link -->
-            <a href="/anounce" onclick="event.preventDefault(); goTo('/anounce');"
-               class="inline-flex items-center gap-3 ${colors.neutral.medium} hover:${colors.black.base} font-medium 
+            <a href="/anounce" class="inline-flex items-center gap-3 ${colors.neutral.medium} hover:${colors.black.base} font-medium 
                text-base sm:text-lg mb-8 sm:mb-10 transition group">
 
               <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

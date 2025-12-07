@@ -10,7 +10,7 @@ export const mediaCard = (data, mediaId) => {
 
   return `
     <article class="group bg-white rounded-xl shadow-md overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2 border border-gray-100 cursor-pointer"
-             onclick="goTo('${link}')">
+>
 
       <!-- Thumbnail or Icon -->
       <div class="relative overflow-hidden h-48 flex items-center justify-center bg-gray-100">
@@ -29,7 +29,6 @@ export const mediaCard = (data, mediaId) => {
         <p class="text-gray-500 text-sm line-clamp-2">${meta}</p>
         <div>
           <a href="${link}" 
-             onclick="event.preventDefault(); goTo('${link}');"
              class="inline-flex items-center text-indigo-600 font-medium hover:gap-2 transition-all duration-300 group/link">
             ${type === "video" ? "Watch Now" : "Listen Now"} &nearr;
           </a>
