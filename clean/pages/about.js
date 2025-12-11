@@ -3,11 +3,24 @@
 import { header } from "../components/header.js";
 import { footer } from "../components/footer.js";
 import { safeInject } from "../utils.js";
-import { colors } from "../colors.js";
+
+export const colors = {
+  primary: { base: "text-emerald-700", bg: "bg-emerald-600", hover: "hover:bg-emerald-700" },
+  secondary: { base: "text-amber-700", bg: "bg-amber-500", hover: "hover:bg-amber-600" },
+  neutral: {
+    light: "text-gray-200", 
+    medium: "text-gray-500",
+    dark: "text-gray-800",
+    bg: "bg-gray-50",
+    border: "border-gray-200"
+  },
+  white: { base: "text-white", bg: "bg-white" },
+  black: { base: "text-black", bg: "bg-black" }
+}
 
 const history = () => {
     const data = {
-        title: "Our Journey • From Humble Beginnings to a Beacon of Knowledge",
+        title: "Our Journey . From Humble Beginnings to a Beacon of Knowledge",
         paragraphs: [
             "Established on 11th Shawwal ul Mukaram 1411 Hijri (1991 CE), Darul Uloom Bilaliya began as a humble institution on a small plot of land (40×60 sq. ft.) in Bilalabad, Lal Bazar. Founded with the vision of preserving authentic Islamic knowledge, the institution grew under the spiritual guidance of renowned scholars including Sheikh Maulana Maseehullah Khan (RA).",
             "Through unwavering community support, divine blessings, and decades of dedication, Darul Uloom Bilaliya has transformed into one of the leading centers of Deobandi education in Kashmir — currently nurturing over 550 residential students and supported by 60 devoted staff members."
@@ -17,7 +30,7 @@ const history = () => {
     };
 
     return `
-<section class="py-32 bg-gradient-to-b from-${colors.neutral.bg} to-white">
+<section class="py-32 bg-gradient-to-b from-bg-gray-50 to-white">
     <div class="container mx-auto px-6 max-w-7xl">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 
@@ -25,16 +38,16 @@ const history = () => {
             <div class="space-y-12">
                 <!-- Title -->
                 <div>
-                    <h2 class="text-5xl md:text-6xl font-extrabold ${colors.black.base} tracking-tight">
-                        ${data.title.split(' • ')[0]}
+                    <h2 class="text-5xl md:text-6xl font-extrabold text-black tracking-tight">
+                        ${data.title.split(' . ')[0]}
                     </h2>
-                    <p class="mt-4 text-xl md:text-2xl ${colors.neutral.dark} font-medium leading-relaxed">
-                        ${data.title.split(' • ')[1]}
+                    <p class="mt-4 text-xl md:text-2xl text-gray-800 font-medium leading-relaxed">
+                        ${data.title.split(' . ')[1]}
                     </p>
                 </div>
 
                 <!-- Paragraphs -->
-                <div class="space-y-7 text-lg leading-relaxed max-w-xl ${colors.neutral.dark}">
+                <div class="space-y-7 text-lg leading-relaxed max-w-xl text-gray-800">
                     ${data.paragraphs.map(p => `<p class="${colors.neutral.medium}">${p}</p>`).join('')}
                 </div>
 

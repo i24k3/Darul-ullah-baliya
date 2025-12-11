@@ -1,4 +1,3 @@
-
 export const colors = {
   primary: { base: "text-emerald-700", bg: "bg-emerald-600", hover: "hover:bg-emerald-700" },
   secondary: { base: "text-amber-700", bg: "bg-amber-500", hover: "hover:bg-amber-600" },

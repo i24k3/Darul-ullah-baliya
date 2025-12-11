@@ -1,4 +1,5 @@
 "use strict";
+
 import { addPage, initRouter } from "./utils.js";
 import { home } from "./pages/home.js";
 import { about } from "./pages/about.js";
@@ -6,54 +7,37 @@ import { anounce } from "./pages/anounce.js";
 import { showPageLoader } from "./components/loading.js";
 import { academics } from "./pages/academics.js";
 
-// 1. Register pages
 addPage('/', home);
 addPage('about', about);
 addPage('anounce', anounce);
 addPage('academics', academics);
 
-// 2. Show loader immediately
-showPageLoader("Bismillah...", 1200);
+// loader
+showPageLoader("Bismillah...", "In the Name of Allah", 3000, 1000);
 
-// 3. Wait for page init + minimum loader time
+// Wait for router init
 const appInitPromise = new Promise((resolve) => {
-    // initRouter renders the page immediately
     initRouter();
-    resolve();  // resolve immediately after page renders
+    resolve();
 });
 
-const minDelay = new Promise((resolve) => setTimeout(resolve, 1200));
-
-// 4. Remove loader when both done
-Promise.all([appInitPromise, minDelay]).then(() => {
+// Hide loader WHEN router is ready
+appInitPromise.then(() => {
     if (window.hidePageLoader) window.hidePageLoader();
 });
 
+// Keep your root fade-in
 const root = document.getElementById('root');
 if (root) {
-    // small delay to ensure loader is above
     setTimeout(() => root.classList.add('visible'), 50);
 }
 
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("popup-btn")) {
+    const url = e.target.dataset.url;
+    const type = e.target.dataset.type;
+    openMediaPopup(url, type);
+  }
+});
 
 
-
-/*
-"use strict";
-
-import { addPage, initRouter } from "./utils.js";
-import { home } from "./pages/home.js";
-import { about } from "./pages/about.js";
-import { anounce } from "./pages/anounce.js";
-
-// routes
-addPage('/', home);
-addPage('about', about);
-addPage('anounce', anounce);
-
-
-
-
-// start the site
-initRouter();
-*/

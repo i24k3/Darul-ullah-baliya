@@ -17,23 +17,6 @@ export const safeInject = (htmlString, parentEl, selector = null) => {
     return elementToInject;
 };
 
-export const safeInjectAll = (htmlString, parentEl) => {
-    if (typeof htmlString !== 'string' || !parentEl?.appendChild) {
-        console.warn('safeInjectAll: invalid arguments');
-        return [];
-    }
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const elements = Array.from(doc.body.children);
-    if (elements.length === 0) return [];
-    const injected = [];
-    for (const el of elements) {
-        parentEl.appendChild(el);
-        injected.push(el);
-    }
-    return injected;
-};
-
 const pages = {};
 
 export const addPage = (name, renderFn) => {
@@ -49,7 +32,7 @@ export const goTo = (path = '/', searchString = '') => {
     if (!renderFn) return;
 
     root.innerHTML = '';
-    renderFn(); // This will now read the REAL current window.location.search
+    renderFn(); 
 
     const newUrl = searchString ? `${path}?${searchString}` : path || '/';
 
@@ -61,29 +44,6 @@ export const goTo = (path = '/', searchString = '') => {
     window.scrollTo(0, 0);
 };
 
-/*
-document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="/"]');
-    if (!link) return;
-    if (link.target || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
-
-    e.preventDefault();
-
-    const url = new URL(link.href);
-    const newUrl = url.pathname + url.search;
-
-    if (window.location.pathname + window.location.search !== newUrl) {
-        history.pushState(null, '', url.href);  // This updates window.location instantly
-        const pageName = url.pathname.replace(/^\/|\/$/g, '') || 'home';
-        const renderFn = pages[pageName] || pages['home'];
-        if (renderFn) {
-            document.getElementById('root').innerHTML = '';
-            renderFn();
-            window.scrollTo(0, 0);
-        }
-    }
-});
-*/
 
 document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
@@ -141,3 +101,27 @@ export const initRouter = () => {
     const initialSearch = window.location.search.substring(1);
     goTo(window.location.pathname, initialSearch);
 };
+
+
+
+export const wrapFade = (html) => `<div class="fade-in-section">${html}</div>`;
+
+
+export const initScrollFade = () => {
+  const sections = document.querySelectorAll('.fade-in-section');
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // animate only once
+        }
+      });
+    },
+    { threshold: 0.1 } // triggers when 10% visible
+  );
+
+  sections.forEach(section => observer.observe(section));
+};
+
+

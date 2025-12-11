@@ -1,6 +1,6 @@
 "use strict";
 
-export const showPageLoader = (msg) => {
+export const showPageLoader = (heading = null, subHeading = null, visibleTime = 1500, loaderRemoveDelay = 1000) => {
     if (document.getElementById('page-loader')) return;
 
     const loaderHTML = `
@@ -16,7 +16,7 @@ export const showPageLoader = (msg) => {
             <div class="relative z-10 text-center px-6 sm:px-12">
                 <!-- Clean title text -->
                 <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-gray-900">
-                    ${msg || "Loading..."}
+                    ${heading || "Loading..."}
                 </h1>
 
 <!-- Minimal single-ring spinner -->
@@ -26,7 +26,7 @@ export const showPageLoader = (msg) => {
 </div>
                 <!-- Loading subtext -->
                 <p class="text-gray-500 text-sm uppercase tracking-wider animate-pulse">
-                    Please wait...
+                ${subHeading || "Please wait..."}
                 </p>
             </div>
         </div>
@@ -48,18 +48,17 @@ export const showPageLoader = (msg) => {
         document.head.appendChild(style);
     }
 
-    const minDelay = 1400;
     const startTime = Date.now();
 
     const hide = () => {
         const elapsed = Date.now() - startTime;
-        const remaining = minDelay - elapsed;
+        const remaining = visibleTime- elapsed;
 
         setTimeout(() => {
             const loader = document.getElementById('page-loader');
             if (loader) {
                 loader.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
-                setTimeout(() => loader.remove(), 1000);
+                setTimeout(() => loader.remove(), loaderRemoveDelay);
             }
         }, remaining > 0 ? remaining : 0);
     };
